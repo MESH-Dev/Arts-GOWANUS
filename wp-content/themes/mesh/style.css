@@ -1610,13 +1610,15 @@ header.deep ul {
   position: absolute;
   bottom: 2.5em;
   right: 3.125em;
-  width: 500px;
+  width: 25%;
 }
 /* line 916, sass/_shame.scss */
 .event-cta h2 {
   color: white;
+  margin-bottom: 20px;
+  text-transform: none;
 }
-/* line 920, sass/_shame.scss */
+/* line 922, sass/_shame.scss */
 .event-cta .button {
   float: right;
   background: #999900;
@@ -1628,12 +1630,12 @@ header.deep ul {
   font-weight: bold;
   font-style: normal;
 }
-/* line 928, sass/_shame.scss */
+/* line 930, sass/_shame.scss */
 .event-cta .button:hover {
   background: #993399;
 }
 
-/* line 934, sass/_shame.scss */
+/* line 936, sass/_shame.scss */
 #instafeed {
   height: 300px;
   margin: 3em 0;
@@ -1644,7 +1646,7 @@ header.deep ul {
   margin-top: 2.5em;
   max-width: 1200px;
 }
-/* line 944, sass/_shame.scss */
+/* line 946, sass/_shame.scss */
 #instafeed .title {
   font-family: "Apercu Bold", Calibri, sans-serif;
   font-size-adjust: 0.508;

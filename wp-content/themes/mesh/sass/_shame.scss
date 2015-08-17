@@ -911,10 +911,12 @@ header.deep{
 	position:absolute;
 	bottom: em(40);
 	right:3.125em;
-	width:500px;
+	width:25%;
 
 	h2{
 		color:white;
+		margin-bottom: 20px;
+		text-transform:none;
 	}
 
 	.button{
