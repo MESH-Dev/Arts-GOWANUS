@@ -28,7 +28,11 @@ get_header();
              <div class="black overlay"></div>
              <div class="user-gateway">
 								<div class="social">
-									<img src="<?php echo get_template_directory_uri('/'); ?>/img/sns icons copy 3.png" />
+									<ul>
+										<li><a href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+										<li><a href="#" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+										<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+									</ul>
 								</div>
 								<div id="donate" class="button">
 									<a class="purple" href="#" target="_blank">Donate</a>
@@ -68,6 +72,7 @@ get_header();
             ?>
                 <div id="events" class="panel" style="background-image:url('<?php echo $event_image['url']?>')">
               <?php endif; ?>
+              <div class="black overlay"></div>
 
                   <div class="event_link">
 
@@ -93,6 +98,10 @@ get_header();
 
                     <h2><a href="<?php the_field('event_link')?>" target="<?php echo $target; ?>"><?php the_field('event_link_text')?></a></h2>
 
+                  </div>
+                  <div class="event-cta">
+                  	<h2><?php the_field('event_cta') ?></h2>
+                  	<a class="button" href="cta_link"><?php the_field('cta_link_text'); ?></a>
                   </div>
                 </div> <!-- End event panel -->
   <?php 

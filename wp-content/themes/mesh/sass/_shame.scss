@@ -105,7 +105,7 @@ h4{
 
 p, a, ul{
 	@include ag_reg;
-	font-size:em(14);
+	//font-size:em(14);
 	line-height:22px;
 	letter-spacing: $lspace4;
 }
@@ -295,6 +295,12 @@ span.address{
 			a{
 				@include ag_bold;
 				margin-right:3.125em;
+
+				&:hover{
+
+					color:$ag_green;
+
+				}
 			}
 		}
 	}
@@ -413,7 +419,14 @@ header.deep{
 }
 
 #home .user-gateway{
+
 	margin-top:2px;
+
+	ul{
+		li{
+			display:inline-block;
+		}
+	}
 }
 
 /*================================================*/
@@ -514,6 +527,13 @@ header.deep{
 		margin-top: em(10);
 	}
 
+	p{
+
+		text-transform:none;
+		margin-bottom:10px;
+
+	}
+
 	ul{
 
 		li{
@@ -525,7 +545,7 @@ header.deep{
 			a{
 				color: $ag_white !important;
 				background-color:$ag_green;
-				padding: 5px;
+				padding: 5px 7px;
 				text-transform:uppercase;
 
 				&:hover{
@@ -795,6 +815,10 @@ header.deep{
 	}
 }
 
+#featured-artists .title h3{
+	text-transform:none;
+}
+
 .columns.title-bar{
 	width:100%;
 }
@@ -817,6 +841,15 @@ header.deep{
   bottom:15%; 
   width:100%; 
   text-align:center;
+
+  	img{
+  		opacity:1;
+  		transition:all .2s ease-in-out;
+
+  		&:hover{
+  			opacity:.6;
+  		}
+  	}
 }
 
 .overlay{
@@ -829,7 +862,7 @@ header.deep{
 	left:0;
 
 	&.black{
-		background-color:rgba(0,0,0,.1);
+		background-color:rgba(0,0,0,.2);
 	}
 
 	&.purple{
@@ -872,6 +905,30 @@ header.deep{
 
 		}
     }
+}
+
+.event-cta{
+	position:absolute;
+	bottom: em(40);
+	right:3.125em;
+	width:500px;
+
+	h2{
+		color:white;
+	}
+
+	.button{
+		float:right;
+		background:$ag_green;
+		color:white;
+		text-transform:uppercase;
+		padding:5px 1em;
+		@include ag_bold;
+
+		&:hover{
+			background:$ag_purple;
+		}
+	}
 }
 
 #instafeed{
