@@ -67,9 +67,9 @@
 	<div id="page" class='hfeed site <?php if( is_page_template('templates/homepage-fullscreen.php') && is_front_page() ) { echo "content-fullscreen"; } ?>'><!-- content-fullscreen -->
 
 		<header class="absolute-top deep">
-			<div class="">
+			<div class="container">
+			<div class="twelve columns">
 
-				<div class="">
 					<!-- <div class="logo" style="width:45%;">
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Welcome to <?php bloginfo( 'name' ); ?></a></h1>
 					</div> -->
@@ -79,6 +79,10 @@
 								<img src="<?php echo get_template_directory_uri('/'); ?>/img/ag_logo.png"  />
 							</a>
 						</div>
+							<div class="global-nav">
+								<li>
+									<div class="hide-for-desktop hide sidr-close"><i class="fa fa-fw fa-close"></i></div>
+								</li>
 						<?php if(has_nav_menu('main_nav')){
 									$defaults = array(
 										'theme_location'  => 'main_nav',
@@ -86,7 +90,7 @@
 										'container'       => false,
 										'container_class' => '',
 										'container_id'    => '',
-										'menu_class'      => 'menu',
+										'menu_class'      => 'menu hide-for-mobile',
 										'menu_id'         => '',
 										'echo'            => true,
 										'fallback_cb'     => 'wp_page_menu',
@@ -101,7 +105,7 @@
 								}else{
 									echo "<p><em>main_nav</em> doesn't exist! Create it and it'll render here.</p>";
 								} ?>
-
+							</div>
 							<div class="user-gateway">
 								<div class="social">
 									<ul>
@@ -115,6 +119,10 @@
 								</div>
 								<div id="subscribe" class="button">
 									<a class="green" href="#" target="_blank">Subscribe</a>
+								</div>
+
+								<div class="responsive-menu-trigger hide-for-desktop">
+									<a class="responsive-menu-button fa fa-fw fa-navicon"></a>
 								</div>
 							</div>
 					</nav>

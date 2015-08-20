@@ -40,6 +40,9 @@ get_header();
 								<div id="subscribe" class="button">
 									<a class="green" href="#" target="_blank">Subscribe</a>
 								</div>
+								<div class="responsive-menu-trigger hide-for-desktop">
+									<a class="responsive-menu-button fa fa-fw fa-navicon"></a>
+								</div>
 							</div>
                 <div class="greeting-container">
                   <div class="greeting">

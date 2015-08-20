@@ -3,11 +3,15 @@
 //enqueue scripts and styles *use production assets. Dev assets are located in assets/css and assets/js
 function loadup_scripts() {
     wp_enqueue_style('fa' , '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
+     wp_enqueue_style( 'sidr-css', get_template_directory_uri().'/css/jquery.sidr.dark.css', '1.0.0', true );
 
     wp_enqueue_script( 'masonry', get_template_directory_uri().'/js/masonry.min.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'imagesloaded', get_template_directory_uri().'/js/imagesloaded.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'scrollto', get_template_directory_uri().'/js/jquery.scrollTo-1.4.2-min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'localscroll', get_template_directory_uri().'/js/jquery.localscroll-1.2.7-min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'parallax', get_template_directory_uri().'/js/jquery.parallax-1.1.3.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'sidr', get_template_directory_uri().'/js/jquery.sidr.min.js', array('jquery'), '1.0.0', true );
+
 	wp_enqueue_script( 'theme-js', get_template_directory_uri().'/js/mesh.js', array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'loadup_scripts' );

@@ -129,6 +129,20 @@ get_header('deep');
 							</div>
 							</a>	
 
+						<?php elseif ($block_type == 'two_col_image_only'): ?>
+
+							<a href="<?php echo $link ?>">
+							<div class="content-block eight columns image-only" style="background-image:src('<?php echo $thumbImageUrl ?>')">
+								<div class="content-text-block">
+									<div class="overlay purple"></div>
+									<p class="title"><?php echo $eventType ?>/</p>
+								</div>
+								<img src="<?php echo $thumbImageUrl ?>" />
+								<!-- <p><?php var_dump($thumbImageUrl); ?> </p> -->
+							</div>
+							</a>
+
+
 						<?php elseif ($block_type == 'cta_block'): ?>
 
 							<div class="content-block four columns cta-block">
@@ -145,9 +159,9 @@ get_header('deep');
 			<div class="row">
 				<div class="twelve columns"	>
 					<div id="instafeed">
-						<p class="title">
-							arts gowanus on instagram
-						</p>
+						<h3 class="title">
+							Arts Gowanus on Instagram
+						</h3>
 					</div>		
 				</div>
 			</div>

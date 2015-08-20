@@ -79,6 +79,10 @@
 								<img src="<?php echo get_template_directory_uri('/'); ?>/img/ag_logo.png"  />
 							</a>
 						</div>
+							<div class="global-nav">
+								<li>
+									<div class="hide-for-desktop hide sidr-close"><i class="fa fa-fw fa-close"></i></div>
+								</li>
 						<?php if(has_nav_menu('main_nav')){
 									$defaults = array(
 										'theme_location'  => 'main_nav',
@@ -86,7 +90,7 @@
 										'container'       => false,
 										'container_class' => '',
 										'container_id'    => '',
-										'menu_class'      => 'menu',
+										'menu_class'      => 'menu hide-for-mobile',
 										'menu_id'         => '',
 										'echo'            => true,
 										'fallback_cb'     => 'wp_page_menu',
@@ -101,23 +105,27 @@
 								}else{
 									echo "<p><em>main_nav</em> doesn't exist! Create it and it'll render here.</p>";
 								} ?>
-
-								<div class="user-gateway hide">
-								<div class="social">
-									<ul>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
-									</ul>
-									<!-- <img src="<?php echo get_template_directory_uri('/'); ?>/img/sns icons copy 3.png" /> -->
-								</div>
-								<div id="donate" class="button">
-									<a class="purple" href="#" target="_blank">Donate</a>
-								</div>
-								<div id="subscribe" class="button">
-									<a class="green" href="#" target="_blank">Subscribe</a>
-								</div>
+								
 							</div>
+								<div class="user-gateway hide">
+									<div class="social">
+										<ul>
+											<li><a href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+										</ul>
+									</div>
+
+									<div id="donate" class="button">
+										<a class="purple" href="#" target="_blank">Donate</a>
+									</div>
+									<div id="subscribe" class="button">
+										<a class="green" href="#" target="_blank">Subscribe</a>
+									</div>
+									<div class="responsive-menu-trigger hide-for-desktop">
+										<a class="responsive-menu-button fa fa-fw fa-navicon"></a>
+									</div>
+								</div>
 					</nav>
 				</div>
 
