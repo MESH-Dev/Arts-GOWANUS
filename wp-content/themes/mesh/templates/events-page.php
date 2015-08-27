@@ -19,9 +19,15 @@ get_header('deep');
 			<div>
 			<div class="title-bar">
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-
-					<h1 class="page-title"><?php the_title(); ?>/</h1>
-
+					<div class="twelve columns">
+						<h1 class="page-title"><?php the_title(); ?>/</h1>
+						  <ul class="subnav">
+							  <?php
+							  global $id;
+							  wp_list_pages("title_li=&child_of=$id&show_date=modified
+							  &date_format=$date_format"); ?>
+							</ul>
+					</div>
 					<?php the_content(); ?>
 
 				<?php endwhile; ?>
@@ -81,7 +87,7 @@ get_header('deep');
 						<?php  elseif ($block_type == 'text_image_new'): ?>
 							
 							<a href="<?php echo $link ?>">
-							<div class="content-block four columns has-border text-image-new">
+							<div class="content-block four columns text-image-new">
 								<div class="title-block">
 									<div class="content-text-block">
 										<p class="title"><?php echo $eventType ?>/</p>
@@ -96,7 +102,7 @@ get_header('deep');
 						<?php  elseif ($block_type == 'text_image_past'): ?>
 							
 							<a href="<?php echo $link ?>">
-							<div class="content-block four columns has-border text-image-past">
+							<div class="content-block four columns text-image-past">
 								<img src="<?php echo $thumbImageUrl ?>">
 								<div class="title-block">
 									<div class="content-text-block">
@@ -157,11 +163,20 @@ get_header('deep');
 			
 			<!--Instagram feed -->
 			<div class="row">
-				<div class="twelve columns"	>
+				<div class=""	>
 					<div id="instafeed">
 						<h3 class="title">
 							Arts Gowanus on Instagram
 						</h3>
+						<div class="four columns">
+							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-1.png"  /></a>
+						</div>
+						<div class="four columns">
+							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-2.png"  /></a>
+						</div>
+						<div class="four columns">
+							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-3.png"  /></a>
+						</div>
 					</div>		
 				</div>
 			</div>

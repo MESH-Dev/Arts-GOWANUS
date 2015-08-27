@@ -68,7 +68,7 @@
 
 		<header class="absolute-top deep">
 			<div class="container">
-			<div class="twelve columns">
+			<div class="">
 
 					<!-- <div class="logo" style="width:45%;">
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Welcome to <?php bloginfo( 'name' ); ?></a></h1>
@@ -114,10 +114,10 @@
 										<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
 									</ul>
 								</div>
-								<div id="donate" class="button">
+								<div id="donate" class="button purple">
 									<a class="purple" href="#" target="_blank">Donate</a>
 								</div>
-								<div id="subscribe" class="button">
+								<div id="subscribe" class="button green">
 									<a class="green" href="#" target="_blank">Subscribe</a>
 								</div>
 

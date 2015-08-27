@@ -34,8 +34,9 @@
 				</div>
 				<div class="subscribe">
 					<p>Subscribe to arts Gowanus</p>
-					<input type="text" placeholder="Enter valid e-mail address"></input>
+					<input type="text" placeholder="Enter e-mail here"></input>
 					<input type="submit" value="Sign Up"></input>
+					<p>Website by <a href="http://www.meshfresh.com" target="_blank">MESH</a></p>
 				</div>
 					<!-- <p>Designed by <a href="http://meshfresh.com" target="_blank">MESH</a></p> -->
 			</div><!-- End of Footer -->

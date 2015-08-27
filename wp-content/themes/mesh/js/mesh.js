@@ -10,10 +10,7 @@ jQuery(document).ready(function($){
    //Increment through each container and apply parrallax
 		//Doing this applies parallax individually to each instance of the "container" class
 		//Otherwise, parallax will be controlled by scrolling as one group.
-		$('.panel').each(function(i){
-			i = i++;
-			$(this).parallax("50%", .08);
-		});	  
+		
 
 		$('.event_link h2 a').hover(function(){
 			$('.event_link_icon img.top').hide();
@@ -40,54 +37,115 @@ jQuery(document).ready(function($){
 		var width = $( window ).width();
 
 		if ( width > 481) {
-			//$('.hide-for-desktop').remove();
+
+			$('.panel').each(function(i){
+			i = i++;
+			$(this).parallax("50%", .08);
+			});	 
+
+			$('.banner').parallax("50%", .08);
 		}
 
 		else if ( width < 480 ){
 			//$('.hide-for-mobile').remove();
 		}
 
-		$(window).scroll(function() {
+		// $(window).scroll(function() {
 
-			var eventTop = $('#events').offset().top;
-			var windowTop = $(window).scrollTop();
-			var homeHeight = $('#home').height();
-			var halfHome = homeHeight/2;
+		// 	var eventTop = $('#events').offset().top;
+		// 	var windowTop = $(window).scrollTop();
+		// 	var homeHeight = $('#home').height();
+		// 	var halfHome = homeHeight/2;
 
-			console.log("Event panel top position" + eventTop);
-			console.log("Window top position" +windowTop);
-			console.log("Home panel height" + homeHeight);
+		// 	console.log("Event panel top position" + eventTop);
+		// 	console.log("Window top position" +windowTop);
+		// 	console.log("Home panel height" + homeHeight);
 
-			if(windowTop < eventTop || windowTop == 0){
-				//$('.home header.absolute-top').slideDown();
-				//$('.home header.fixed-bottom').slideDown();
-				$('.home header')
-					.addClass('fixed-bottom')
-					.removeClass('fixed-top');
-				$('.main-navigation ul')
-					.animate({marginLeft: 0},100);
-				$('#home .user-gateway')
-					.slideDown();
-				$('.home header .logo')
-					.addClass('hide');
-				$('.home header .user-gateway')
-					.addClass('hide');
-			}
-			if(windowTop >= eventTop){
-				$('.home header')
-					.removeClass('fixed-bottom')
-					.addClass('fixed-top');
-				$('.main-navigation ul')
-					.animate({marginLeft: 260},100);
-				$('#home .user-gateway')
-					.slideUp();
-				$('.home header .logo')
-					.removeClass('hide');
-				$('.home header .user-gateway')
-					.removeClass('hide');
-			}
+		// 	if(windowTop < eventTop || windowTop == 0){
+		// 		//$('.home header.absolute-top').slideDown();
+		// 		//$('.home header.fixed-bottom').slideDown();
+		// 		$('.home header')
+		// 			.addClass('fixed-bottom')
+		// 			.removeClass('fixed-top');
+		// 		//$('.main-navigation ul')
+		// 			//.animate({marginLeft: 0},100);
+		// 		$('#home .user-gateway')
+		// 			.slideDown();
+		// 		$('.home header .logo')
+		// 			.addClass('hide');
+		// 		$('.home header .user-gateway')
+		// 			.addClass('hide');
+		// 	}
+		// 	if(windowTop >= eventTop){
+		// 		$('.home header')
+		// 			.removeClass('fixed-bottom')
+		// 			.addClass('fixed-top');
+		// 		//$('.main-navigation ul')
+		// 			//.animate({marginLeft: 260},100);
+		// 		$('#home .user-gateway')
+		// 			.slideUp();
+		// 		$('.home header .logo')
+		// 			.removeClass('hide');
+		// 		$('.home header .user-gateway')
+		// 			.removeClass('hide');
+		// 	}
+		// });
+
+	$(window).bind('scroll', function() {
+	   var navHeight = $( window ).height() - 70;
+			 if ($(window).scrollTop() > navHeight) {
+				 $('.home nav').addClass('fixed-top');
+				 //$('.home .logo').css({top:'0'});
+				 $('.home .user-gateway').css({top:'0', marginTop: '0px'});
+
+				 //$('.home nav ul').css({marginLeft: 260});
+			 }
+			 else {
+				 $('.home nav').removeClass('fixed-top');
+				 //$('.home .logo').css({top:'16px'});
+				 $('.home .user-gateway').css({top:'16px', marginTop: '0px'});
+				 //$('.home nav ul').css({marginLeft: 0});
+			 }
 		});
 
+
+	$('#twitter').click(function(e){
+		e.preventDefault();
+		$(this)
+			.addClass('bounceOutRight animated')
+			.removeClass('bounceInRight');
+		$('.tw-feed-block')
+			.animate({opacity:1}, 700);
+	});
+
+	$('.tw-close').click(function(e){
+		$('.tw-feed-block')
+			.animate({opacity:0}, 700);
+		$('#twitter')
+			.removeClass('bounceOutRight')
+			.addClass('bounceInRight');
+	});
+
+		// var userFeed = new Instafeed({
+		// limit: 3,
+		// get: 'mesh_design',	
+  //       clientId: '	d346c1de6d274f4994f9345b72b3a633',
+  //       after: function(){
+  //       	$('#instafeed a').wrap('<div class="four columns" />')
+  //       }
+		//     });
+		// userFeed.run();
+
+		// var feed = new Instafeed({
+		// limit: 3,	
+  //       clientId: '	d346c1de6d274f4994f9345b72b3a633',
+  //       after: function(){
+  //       	$('#instafeed a').wrap('<div class="four columns" />')
+  //       }
+		//     });
+		// feed.run();
+
+		//That mobile nav that we all love so much :)
 		$('.responsive-menu-button').sidr({
 		      name: 'sidr-main',
 		      source: '.global-nav',
@@ -99,6 +157,8 @@ jQuery(document).ready(function($){
 	 		$.sidr('close', 'sidr-main');
 	 		console.log("Sidr should be closed");
 	 	});
+		//============================================
+
 
 		$('a[href*=#]:not([href=#])').click(function() {
     		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {

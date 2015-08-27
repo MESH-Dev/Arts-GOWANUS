@@ -122,6 +122,10 @@ h1, h2, h3, h4, h5, p{
  text-transform:uppercase;
  }
 
+body{
+	overflow-x:hidden;
+}
+
 body, html{
 	 @include ag_reg;
 	// //font-size:em(14);
@@ -139,8 +143,12 @@ main, #page{
 
 header{
 	background:$ag_black;
-	//position:fixed;
 	width:100%;
+}
+
+header, .sticky{
+	//position:fixed;
+	//width:100%;
 	//bottom:0;
 	z-index:5000;
 
@@ -171,7 +179,7 @@ header{
 
 footer{
 	background:$ag_black;
-	font-family: Helvetica, sans-serif !important;
+	//font-family: Helvetica, sans-serif !important;
 	font-weight:bold;
 	width:100%;
 	text-transform:uppercase;
@@ -180,14 +188,14 @@ footer{
 	margin-top:3em;
 
 	p{
-		font-family:inherit;
+		//font-family:inherit;
 		margin-bottom: 30px;
 	}
 
 	.contact{
 
 		float:left;
-		padding-left:3.125em;
+		padding-left:2.5em;
 
 		& > div{
 			float:left;
@@ -216,6 +224,7 @@ footer{
 			margin:0;
 			width:300px;
 			color:$ag_black;
+
 		}
 
 		input[type="submit"]{
@@ -225,7 +234,10 @@ footer{
 			padding:8px;
 			width:100px;
 			margin-left:-4px;
-			//float:left;
+			
+			&:hover, &:active, &:focus{
+				background:$ag_green;
+			}
 		}
 	}
 
@@ -241,7 +253,7 @@ footer{
 				display:inline;
 
 				a{
-					font-size: em(22);
+					//font-size: em(22);
 
 					&:hover{
 						color:$ag_purple;
@@ -276,12 +288,35 @@ footer{
 .fixed-top{
 	position:fixed;
 	top:0;
+	z-index:1;
+	height:40px;
+	//background:$ag_black;
 }
 
 .absolute-top{
 	position:absolute;
 	top:0;
 }
+
+.absolute-bottom{
+	bottom:0;
+	width:100%;
+	height:40px;
+	position:absolute;
+	background:$ag_black;
+	//z-index:999999;
+}
+
+.floatRight{
+	float:right;
+}
+
+// header.home nav{
+// 	//position:absolute;
+// 	bottom:0;
+// 	width:100%;
+// 	height:70px;
+// }
 
 .hide{
 	display:none;
@@ -296,13 +331,13 @@ span.address{
 	color:$ag_green;
 }
 
-.main-navigation{
+header.deep .global-nav, .sticky{
 
 	ul{
 		li{
 			a{
 				@include ag_bold;
-				margin-right:3.125em;
+				margin-right:2.625em;
 
 				&:hover{
 
@@ -319,19 +354,32 @@ span.address{
 	background-color:black;
 }
 
-header.deep{
+header.deep .global-nav, .sticky.fixed-top{
 
-		
 
 		ul{
-			margin-left:16.25em;
+			margin-left:15.25em;
 		}
 	}
 
+header.deep .logo{
+	position:absolute;
+}
+
 .logo{
-			position:absolute;
+			//position:absolute;
 			left:2.5em;
+			z-index:10000;
+			
 		}
+
+#home .social{
+	margin-top:.5em;
+}
+
+.home .user-gateway{
+	top:1em;
+}
 
 /* Setup new grid on .page
 ================================================*/
@@ -361,6 +409,18 @@ header.deep{
 
 	}
 
+}
+/*================================================*/
+
+
+/* Correct content link color on text-style pages
+================================================*/
+#page .text-page{
+	.container{
+		a{
+			color:$ag_green;
+		}
+	}
 }
 /*================================================*/
 
@@ -419,8 +479,9 @@ header.deep{
 
 .user-gateway{
 	float:right;
-	position:relative;
-	z-index:50;
+	//position:relative;
+	right:0;
+	z-index:5000;
 	& > div{
 		display:inline-block;
 		float:left;
@@ -430,7 +491,7 @@ header.deep{
 
 #home .user-gateway{
 
-	margin-top:6px;
+	//margin-top:11px;
 
 	ul{
 		li{
@@ -440,7 +501,72 @@ header.deep{
 	}
 }
 
+.title-bar .twelve.columns{
+	float:none;
+	display:block;
+	max-width:1200px;
+	margin:0 auto;
+	padding-left:.75em;
+	height:60px;
+
+	h1{
+		padding-left:0;
+		display:inline-block;
+		float:left;
+		//margin-left:.75em;
+	}
+}
+
+// .global-nav{
+// 	position:absolute;
+// }
+
 /*================================================*/
+
+/*Subnav structure
+================================================*/
+.subnav{
+	
+	margin-left:1.75em;
+	display:table !important;
+	height:100%;
+	float:left;
+
+	li{
+		vertical-align: bottom;
+		height:100%;
+		display:table-cell;
+		padding-bottom: 6px;
+
+		&:after{
+				content:"\00a0\00a0\00a0/\00a0\00a0\00a0"
+			}
+
+		a{
+			//margin-right: 2.625em;
+			//padding:.5em 0;
+			color:white;
+			@include ag_bold;
+
+			&:hover{
+				color:$ag_purple;
+			}
+
+			
+		}
+
+		&:last-child{
+			
+				&:after{
+					content:"";
+				}
+		}
+	}
+
+	
+}
+
+/*================================================*
 
 /*New grid structure
 ================================================*/
@@ -475,7 +601,7 @@ header.deep{
 	&.text-image-new, &.text-image-past{
 		&:hover{
 
-			border:5px solid $ag_purple;
+			//border:5px solid $ag_purple;
 
 			.content-text-block{
 				background:$ag_purple;
@@ -572,17 +698,18 @@ header.deep{
 
 .banner{
 	width:100%;
-	height:600px;
+	height:385px;
 	background-size:cover;
-	background-position:top center;
+	background-position:center center;
 	background-repeat:no-repeat;
+	background-attachment:fixed;
 }
 
 .text-page{
 
 	.container .three.columns, .container .nine.columns{
-		margin-right:1.25em;
-		margin-left:1.25em;
+		margin-right:.75em;
+		margin-left:.75em;
 	}
 }
 
@@ -620,21 +747,28 @@ header.deep{
 }
 
 .button{
+	height:40px;
+	padding:.5em 1em;
 	a{
 		color:white;
-		padding: .5em 1em;
+		//padding: .79em 1em;
 		text-transform:uppercase;
+		@include ag_bold;
 	}
-	.green{
+	&.green{
 		background-color:$ag_green;
 		@include ag_bold;
 		&:hover{
 			background-color:white;
 			color: $ag_green;
+
+			a{
+				color:$ag_green;
+			}
 		}
 	}
 
-	.purple{
+	&.purple{
 		background-color:$ag_purple;
 		@include ag_bold;
 		margin-right:.625em;
@@ -642,9 +776,14 @@ header.deep{
 		&:hover{
 			background-color:white;
 			color: $ag_purple;
+
+			a{
+				color:$ag_purple;
+			}
 		}
 	}
 }
+
 
 .social{
 	margin-right:1.75em;
@@ -685,7 +824,7 @@ header.deep{
   display:table;
   width:30%;
   min-width:28.75em;
-  height:100%;
+  height:95%;
   position:relative;
   z-index:4000;
 }
@@ -710,17 +849,22 @@ header.deep{
 }
 
 .event_link{
-	position:absolute;
-	right:6.125em;
-	top:3em;
+	position:relative; //absolute;
+	// right:6.125em; //remove
+	//top:3em; //remove
 	//display:table;
 	min-width: 253px;
     width: 253px;
+    z-index:0;
+    margin-right:3.125em; //new
+    margin-top:3em; //new
+    float:right; //new
 
 	.event_link_icon{
 		position:absolute;
 		width:100%;
 		height:253px;
+		z-index:0;
 
 		// &:hover img.top{
 		// 	display:none;
@@ -744,17 +888,20 @@ header.deep{
 	}
 
 	h2 {
-		position:absolute;
+		position:relative; //absolute;
 		//display:table-cell;
 		vertical-align:middle;
 		text-align: center;
 		//z-index:2;
 		//height:100%;
 		font-size:1em;
-		width: 80%;
-	    left: 50%;
-	    top: 50%;
-	    transform: translate(-50%, 31%);
+		width:156px;
+		top:39px;
+		left:48px;
+		// width: 80%;
+	 //    left: 50%;
+	 //    top: 50%;
+	 //    transform: translate(-50%, 31%);
 	    z-index: 15;
 
 		a{
@@ -793,8 +940,7 @@ header.deep{
 		padding:1.25em;
 		background:$ag_green;
 		color:white;
-		width:25%;
-		min-width:21.875em;
+		width:24.3125em;
 
 		&:hover{
 				background:$ag_purple;
@@ -842,7 +988,7 @@ header.deep{
 	background-color:$ag_green;
 	color:white;
 	padding:0;
-	padding-left:2.5em;
+	//padding-left:2.5em;
 
 	h1{
 		margin:0;
@@ -922,18 +1068,39 @@ header.deep{
     }
 }
 
+
+.tw-feed-block{
+	background:white;
+	color:black;
+	position:absolute;
+	right:3.125em;
+	bottom:20%;
+	padding:1.5em;
+	opacity:0;
+	width:24.3125em;
+	z-index:5000;
+
+
+	.tw-close{
+		text-align:right;
+		cursor:pointer;
+		position:absolute;
+		top:.5em;
+		right:.5em;
+	}
+}
 .event-cta{
 	position:absolute;
 	bottom: em(40);
 	right:3.125em;
-	width:25%;
-	min-width:300px;
+	
+	width:24.3125em;
 
 	h2{
 		color:white;
 		margin-bottom: 20px;
 		text-transform:none;
-		letter-spacing:.09em;
+		letter-spacing:.2em;
 	}
 
 	.button{
@@ -942,6 +1109,7 @@ header.deep{
 		color:white;
 		text-transform:uppercase;
 		padding: 2px 1.5em;
+		height:auto;
 		@include ag_bold;
 
 		&:hover{
@@ -968,6 +1136,15 @@ header.deep{
 		margin-top: em(10);
 		text-transform:none;
 	}
+
+	.four.columns{
+		margin-right:.75em;
+		margin-left:.75em;
+
+
+	}
+
+
 }
 
 .container{
@@ -1022,16 +1199,121 @@ header.deep{
 }
 
 
-@media only screen and (min-width: 769px) and (max-width: 1024px){
+@media only screen and (max-width:1250px){
+	.logo{
+		//left:1.75em;
+		width:9em;
+	}
 
-	.main-navigation ul li a{
+	footer .social ul{
+		padding-left:20px;
+	}
+
+	footer .contact{
+		padding-left:1.5em;
+	}
+
+	footer .subscribe{width:417px;}
+
+	header.deep .global-nav ul li a, .sticky .global-nav ul li a{
 		margin-right:0;
 	}
 
+	header ul li a, .sticky.fixed-top a {
+		padding:.5em .75em;
+	}
+}
+
+@media only screen and (min-width: 951px) and (max-width: 1250px){
+
+	header.deep .global-nav ul li a, .sticky .global-nav ul li a{
+		margin-right:0;
 	}
 
-@media only screen and (max-width: 768px){
-	
+	.logo{
+		left:1.5em;
+	}
+
+	.social{
+		margin-right:0;
+	}
+
+	.contact{
+		padding-left:1.75em;
+	}
+
+	header.deep .global-nav, .sticky.fixed-top{
+		ul{
+			margin-left:10.25em;
+
+		}
+	}
+
+	header ul li a, .sticky.fixed-top a {
+		padding:.5em .75em;
+	}
+
+	footer .subscribe{
+		padding-right:.5em;
+		width:432px;
+	}
+
+
+	.global-nav{
+		position:absolute;
+
+		
+	}
+	}
+
+@media only screen and (min-width: 769px) and (max-width: 950px){
+	//.home .global-nav ul{margin-left:200px !important;}
+
+	footer .subscribe{
+		padding-right:0;
+		width:311px;
+	}
+
+	footer .subscribe input[type="text"]{
+		width:200px;
+	}
+
+	header.deep .global-nav, .sticky.fixed-top .global-nav{
+		ul{
+			margin-left:10.25em;
+
+			li{
+
+				a{
+					margin-right:0;
+				}
+
+			}
+
+		}
+	}
+
+	header ul li a, .sticky.fixed-top a {
+		padding:.5em .5em;
+	}
+
+	#home .social, header.deep .social{
+		display:none;
+		visibility:visible;
+	}
+
+	.logo{
+		left:1.5em;
+	}
+
+	footer .social{
+		margin-right:0;
+	}
+
+	footer .social ul li a{font-size:1em;}
+	// .main-navigation ul li a, .sticky.fixed-top ul li a{
+	// 	margin-right:0;
+	// }
 }
 
 @media only screen and (min-width: 401px) and (max-width: 768px){
@@ -1055,14 +1337,18 @@ header.deep{
 			}
 
 		#twitter{
-			bottom:30px;
+			bottom:10%;
 		}
 
 		.down-container{
 			bottom:5%;
 		}
 
-		
+		#home .social, header.deep .social{
+		display:none;
+		visibility:visible;
+	}	
+
 		footer{
 
 			.contact{
@@ -1127,6 +1413,26 @@ header.deep{
 
 	}
 
+	.title-bar{
+		display:table;
+	}
+
+	.title-bar .twelve.columns{
+		//height:95px;
+
+	}
+
+	.subnav{
+		margin-left:0;
+		display:block;
+		height:auto;
+
+		li{
+			height:auto;
+			display:inline-block;
+
+		}
+	}
 	#home .user-gateway{
 			float:none;
 			margin-top:0;
@@ -1137,7 +1443,7 @@ header.deep{
 			}
 
 			& > div{
-				margin-top:6px;
+				//margin-top:6px;
 			}
 
 			.responsive-menu-trigger{
@@ -1187,7 +1493,9 @@ header.deep{
 		float:none;
 	}
 
-
+	#home .social{
+		display:none;
+	}
 
 	.logo{
 		width:25%;
@@ -1207,6 +1515,15 @@ header.deep{
 	.greeting-container{
 		min-width:0;
 		width:95%;
+		font-size:70%;
+		line-height:1.2;
+		display:block;
+		height:auto;
+		margin-top:2em;
+
+		h1, h2{
+			line-height:1.3;
+		}
 
 		.greeting{
 			padding-left:1em;
@@ -1214,17 +1531,47 @@ header.deep{
 	}
 
 	#twitter{
-			bottom:30px;
+			bottom:10%;
 		}
 
+	.tw-feed-block{
+		margin-right:0;
+		width:95%;
+		margin:0 auto;
+		right:0;
+		left:.5em;
+		z-index:5000;
+
+		p{
+			text-transform:none;
+		}
+
+		a{
+			color:$ag_green;
+
+			&:hover{
+				color:$ag_purple;
+			}
+		}
+	}
 	.down-container{
 			bottom:5%;
 		}
 
 	.event-cta{
-		width:90%;
+		width:95%;
 		right:0;
-		left:1em;
+		left:.5em;
+	}
+
+	.event_link{
+		float:none;
+		margin:0 auto;
+		top:1.5em;
+
+		h2{
+			top:52px;
+		}
 	}
 
 	.panel{
@@ -1232,6 +1579,15 @@ header.deep{
 		.title{
 			position:static;
 			margin:0 auto;
+			width:95%
+		}
+
+	}
+
+	.user-gateway .button{
+
+		a{
+			font-size:.75em;
 		}
 
 	}

@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <main id="" class="" role="main"> <!-- site-main -->
- <div class="strip"></div>
+ 
  <!--  <div class=""> --><!-- container -->
 
    <!--  <div class=""> --><!-- row -->
@@ -25,8 +25,14 @@ get_header();
             ?>
               <div id="home" class="panel" style="background-image:url('<?php echo $top_image['url']?>')">
              <?php endif; ?>
+             <div class="strip"></div>
              <div class="black overlay"></div>
-             <div class="user-gateway">
+             <div class="logo fixed-top">
+				<a href="<?php echo site_url(); ?>">
+					<img src="<?php echo get_template_directory_uri('/'); ?>/img/ag_logo.png"  />
+				</a>
+			</div>
+             <div class="user-gateway fixed-top">
 								<div class="social">
 									<ul>
 										<li><a href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
@@ -34,16 +40,57 @@ get_header();
 										<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
 									</ul>
 								</div>
-								<div id="donate" class="button">
-									<a class="purple" href="#" target="_blank">Donate</a>
+								<div id="donate" class="button purple">
+									<a class="purple" href="<?php echo site_url(); ?>/donate" target="_blank">Donate</a>
 								</div>
-								<div id="subscribe" class="button">
+								<div id="subscribe" class="button green">
 									<a class="green" href="#" target="_blank">Subscribe</a>
 								</div>
 								<div class="responsive-menu-trigger hide-for-desktop">
 									<a class="responsive-menu-button fa fa-fw fa-navicon"></a>
 								</div>
 							</div>
+
+
+							<nav class="main-navigation sticky">
+						
+							<div class="global-nav absolute-bottom">
+								<li>
+									<div class="hide-for-desktop hide sidr-close"><i class="fa fa-fw fa-close"></i></div>
+								</li>
+						<?php if(has_nav_menu('main_nav')){
+									$defaults = array(
+										'theme_location'  => 'main_nav',
+										'menu'            => 'main_nav',
+										'container'       => false,
+										'container_class' => '',
+										'container_id'    => '',
+										'menu_class'      => 'menu hide-for-mobile',
+										'menu_id'         => '',
+										'echo'            => true,
+										'fallback_cb'     => 'wp_page_menu',
+										'before'          => '',
+										'after'           => '',
+										'link_before'     => '',
+										'link_after'      => '',
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+										'depth'           => 0,
+										'walker'          => ''
+									); wp_nav_menu( $defaults );
+								}else{
+									echo "<p><em>main_nav</em> doesn't exist! Create it and it'll render here.</p>";
+								} ?>
+								
+							</div>
+								
+					</nav>
+
+
+
+
+
+
+
                 <div class="greeting-container">
                   <div class="greeting">
                     <h1><?php echo the_field('greeting') ?></h1>
@@ -54,9 +101,14 @@ get_header();
                     <h2><?php echo the_field('greeting') ?></h2>
                     <h3><?php echo the_field('mission') ?></h3>
                   </div> -->
-             
+             <div class="tw-feed-block">
+             	<div class="tw-close"><i class="fa fa-fw fa-close"></i></div>
+             	<p><a href="https://instagram.com/artsgowanus/" target="_blank">@artsgowanus</a><br />
+             		OPEN CALL!  Am I invisible? NYC SP invites artists in NYC to share their experiences of biking in the city.  <a href="htp://bicycleutoianyc.com" target="_blank">htp://bicycleutoianyc.com</a>
+             	</p>
+             </div>
              <div id="twitter">
-	             <a href="#" target="_blank">
+	             <a href="#">
 	              	<img class="top" src="<?php echo get_template_directory_uri('/'); ?>/img/twitter-white.png" />
 	              	<img class="bottom" src="<?php echo get_template_directory_uri('/'); ?>/img/twitter-purple.png" />
 	          	</a>

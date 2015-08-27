@@ -7,7 +7,7 @@ get_header('deep');
 <main id="content" class="text-page">
 
 	<div class="container">
-		<div class="row">
+		<div class="">
 			<?php 
               $banner_image = get_field('banner_image');
               $bannerimageURL = $banner_image['sizes']['short-banner'];
@@ -20,14 +20,22 @@ get_header('deep');
 			<div class="title-bar">
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-					<h1 class="page-title"><?php the_title(); ?>/</h1>
+					<div class="twelve columns">
+						<h1 class="page-title"><?php the_title(); ?>/</h1>
+						<ul class="subnav">
+							  <?php
+							  global $id;
+							  wp_list_pages("title_li=&child_of=$id&show_date=modified
+							  &date_format=$date_format"); ?>
+							</ul>
+					</div>
 
 					
 
 				<?php endwhile; ?>
 			</div>
 
-				<div class="grid twelve columns" id="sidebar">
+				<div class="grid text-page twelve columns">
 				<div class="three columns">
 					
 					<?php if (have_rows('sidebar_block')): 
@@ -69,20 +77,31 @@ get_header('deep');
 				</div>
 				<!-- Change this to repeater of custom fields -->
 
-				<div class="content-block four columns intro">
+				<!-- <div class="content-block four columns intro">
 					<h2><?php echo get_field('page_content_title') ?></h2>
-					<p><?php echo get_field('page_content_description') ?></p>
-				</div>
+					<p><?php echo get_field('page_content_description') ?></p>-->
+				</div> 
 
 				
 
 			<!--Instagram feed -->
-			<div class="twelve columns"	>
-				<div id="instafeed">
-					<h3 class="title">
-						Arts Gowanus on Instagram
-					</h3>
-				</div>		
+			<div class="row">
+				<div class="twelve columns"	>
+					<div id="instafeed">
+						<h3 class="title">
+							Arts Gowanus on Instagram
+						</h3>
+						<div class="four columns">
+							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-1.png"  /></a>
+						</div>
+						<div class="four columns">
+							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-2.png"  /></a>
+						</div>
+						<div class="four columns">
+							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-3.png"  /></a>
+						</div>
+					</div>		
+				</div>
 			</div>
 			<!--Instagram feed -->
 
