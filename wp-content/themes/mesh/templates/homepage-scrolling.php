@@ -41,7 +41,7 @@ get_header();
 									</ul>
 								</div>
 								<div id="donate" class="button purple">
-									<a class="purple" href="<?php echo site_url(); ?>/donate" target="_blank">Donate</a>
+									<a class="purple" href="<?php echo site_url(); ?>/about/donate" target="_blank">Donate</a>
 								</div>
 								<div id="subscribe" class="button green">
 									<a class="green" href="#" target="_blank">Subscribe</a>
@@ -104,7 +104,7 @@ get_header();
              <div class="tw-feed-block">
              	<div class="tw-close"><i class="fa fa-fw fa-close"></i></div>
              	<p><a href="https://instagram.com/artsgowanus/" target="_blank">@artsgowanus</a><br />
-             		OPEN CALL!  Am I invisible? NYC SP invites artists in NYC to share their experiences of biking in the city.  <a href="htp://bicycleutoianyc.com" target="_blank">htp://bicycleutoianyc.com</a>
+             		OPEN CALL!  Am I invisible? NYC SP invites artists in NYC to share their experiences of biking in the city.  <a href="http://bicycleutoianyc.com" target="_blank">http://bicycleutoianyc.com</a>
              	</p>
              </div>
              <div id="twitter">

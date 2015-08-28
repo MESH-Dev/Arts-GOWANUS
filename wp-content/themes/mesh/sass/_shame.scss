@@ -236,7 +236,7 @@ footer{
 			margin-left:-4px;
 			
 			&:hover, &:active, &:focus{
-				background:$ag_green;
+				background:$ag_purple;
 			}
 		}
 	}
@@ -1100,7 +1100,7 @@ header.deep .logo{
 		color:white;
 		margin-bottom: 20px;
 		text-transform:none;
-		letter-spacing:.2em;
+		letter-spacing:.015em;
 	}
 
 	.button{
@@ -1415,6 +1415,7 @@ header.deep .logo{
 
 	.title-bar{
 		display:table;
+		width:100%;
 	}
 
 	.title-bar .twelve.columns{

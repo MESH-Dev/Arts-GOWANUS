@@ -115,7 +115,7 @@
 									</ul>
 								</div>
 								<div id="donate" class="button purple">
-									<a class="purple" href="#" target="_blank">Donate</a>
+									<a class="purple" href="<?php echo site_url(); ?>/about/donate" target="_blank">Donate</a>
 								</div>
 								<div id="subscribe" class="button green">
 									<a class="green" href="#" target="_blank">Subscribe</a>
