@@ -109,16 +109,16 @@
 							<div class="user-gateway">
 								<div class="social">
 									<ul>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+										<li><a href="https://twitter.com/artsgowanus" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+										<li><a href="https://www.facebook.com/gowanusopenstudios" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+										<li><a href="https://instagram.com/artsgowanus/" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
 									</ul>
 								</div>
 								<div id="donate" class="button purple">
-									<a class="purple" href="<?php echo site_url(); ?>/about/donate" target="_blank">Donate</a>
+									<a class="purple" href="<?php echo site_url(); ?>/about/donate">Donate</a>
 								</div>
 								<div id="subscribe" class="button green">
-									<a class="green" href="#" target="_blank">Subscribe</a>
+									<a class="green" href="<?php echo site_url(); ?>/subscribe">Subscribe</a>
 								</div>
 
 								<div class="responsive-menu-trigger hide-for-desktop">

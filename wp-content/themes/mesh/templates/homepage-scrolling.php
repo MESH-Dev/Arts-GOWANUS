@@ -21,9 +21,10 @@ get_header();
             
            <?php 
               $top_image = get_field('top_panel_image');
+              $top_image_url = $top_image['sizes']['background-fullscreen'];
                 if ( !empty ($top_image)): 
             ?>
-              <div id="home" class="panel" style="background-image:url('<?php echo $top_image['url']?>')">
+              <div id="home" class="panel" style="background-image:url('<?php echo $top_image_url?>')">
              <?php endif; ?>
              <div class="strip"></div>
              <div class="black overlay"></div>
@@ -35,16 +36,16 @@ get_header();
              <div class="user-gateway fixed-top">
 								<div class="social">
 									<ul>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+										<li><a href="https://twitter.com/artsgowanus" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+										<li><a href="https://www.facebook.com/gowanusopenstudios" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+										<li><a href="https://instagram.com/artsgowanus/" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
 									</ul>
 								</div>
 								<div id="donate" class="button purple">
-									<a class="purple" href="<?php echo site_url(); ?>/about/donate" target="_blank">Donate</a>
+									<a class="purple" href="<?php echo site_url(); ?>/about/donate">Donate</a>
 								</div>
 								<div id="subscribe" class="button green">
-									<a class="green" href="#" target="_blank">Subscribe</a>
+									<a class="green" href="<?php echo site_url(); ?>/subscribe">Subscribe</a>
 								</div>
 								<div class="responsive-menu-trigger hide-for-desktop">
 									<a class="responsive-menu-button fa fa-fw fa-navicon"></a>
@@ -102,10 +103,15 @@ get_header();
                     <h3><?php echo the_field('mission') ?></h3>
                   </div> -->
              <div class="tw-feed-block">
-             	<div class="tw-close"><i class="fa fa-fw fa-close"></i></div>
-             	<p><a href="https://instagram.com/artsgowanus/" target="_blank">@artsgowanus</a><br />
+               	<div id="tweet-container" class="tw-close">
+                    <i class="fa fa-fw fa-close"></i>
+                </div>
+                <div class="twitter-tweet">
+                    <?php get_template_part( 'partials/twitter' ); ?>
+                </div>
+             <!-- 	<p><a href="https://instagram.com/artsgowanus/" target="_blank">@artsgowanus</a><br />
              		OPEN CALL!  Am I invisible? NYC SP invites artists in NYC to share their experiences of biking in the city.  <a href="http://bicycleutoianyc.com" target="_blank">http://bicycleutoianyc.com</a>
-             	</p>
+             	</p> -->
              </div>
              <div id="twitter">
 	             <a href="#">
@@ -123,9 +129,10 @@ get_header();
             
           <?php 
               $event_image = get_field('ep_background');
+              $event_image_url = $event_image['sizes']['background-fullscreen'];
                 if ( !empty ($event_image)): 
             ?>
-                <div id="events" class="panel" style="background-image:url('<?php echo $event_image['url']?>')">
+                <div id="events" class="panel" style="background-image:url('<?php echo $event_image_url ?>')">
               <?php endif; ?>
               <div class="black overlay"></div>
 
@@ -161,12 +168,13 @@ get_header();
                 </div> <!-- End event panel -->
   <?php 
     $program_image = get_field('pp_background');
+    $program_image_url = $program_image['sizes']['background-fullscreen'];
     if (!empty ($program_image)):
     ?>
-  <div id="programs" class=" panel" style="background-image:url('<?php echo $program_image['url']?>')">
+  <div id="programs" class=" panel" style="background-image:url('<?php echo $program_image_url ?>')">
   <?php endif; ?>
     <div class="title">
-    	<a href="<?php echo site_url(); ?>/programs">
+    	<a href="<?php echo site_url(); ?>/about">
 	    	<p>Programs/</p>
 			<h2>Our Programs</h2>
 		</a>
@@ -174,12 +182,13 @@ get_header();
   </div> <!-- End program panel -->
   <?php 
     $artist_image = get_field('fa_background');
+    $artist_image_url = $artist_image['sizes']['background-fullscreen'];
     if (!empty ($artist_image)):
     ?>
-   <div id="featured-artists" class=" panel" style="background-image:url('<?php echo $artist_image['url']?>')">
+   <div id="featured-artists" class=" panel" style="background-image:url('<?php echo $artist_image_url?>')">
     <?php endif; ?>
     <div class="title">
- 		<a href="<?php get_field('fa_link') ?>" target="_blank"><p>Feature Artist/</p>
+ 		<a href="<?php get_field('fa_link') ?>"><p>Feature Artist/</p>
 		<h2><?php echo get_field('fa_name') ?></h2>
 		<h3><?php echo get_field('fa_description') ?></h3></a>
     </div>

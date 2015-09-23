@@ -21,13 +21,25 @@ get_header('deep');
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 					<div class="twelve columns">
-						<h1 class="page-title"><?php the_title(); ?>/</h1>
-						<ul class="subnav">
-							  <?php
-							  global $id;
-							  wp_list_pages("title_li=&child_of=$id&show_date=modified
-							  &date_format=$date_format"); ?>
-							</ul>
+						<h1 class="page-title"><?php  //the_title(); ?><?php $parent_title = get_the_title($post->post_parent); echo $parent_title;?>/</h1>
+
+						<?php
+  							if($post->post_parent)
+
+  								$children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");
+
+  							else
+
+  								$children = wp_list_pages("title_li=&child_of=".$post->ID."&echo=0");
+
+  							if ($children) { ?>
+
+ 								 <ul class="subnav">
+  									<?php echo $children; ?>
+  								</ul>
+
+						<?php } ?>
+
 					</div>
 
 					
@@ -91,7 +103,7 @@ get_header('deep');
 						<h3 class="title">
 							Arts Gowanus on Instagram
 						</h3>
-						<div class="four columns">
+						<!-- <div class="four columns">
 							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-1.png"  /></a>
 						</div>
 						<div class="four columns">
@@ -99,7 +111,7 @@ get_header('deep');
 						</div>
 						<div class="four columns">
 							<a href="https://instagram.com/artsgowanus/" target="_blank"><img src="<?php echo get_template_directory_uri('/'); ?>/img/instagram-3.png"  /></a>
-						</div>
+						</div> -->
 					</div>		
 				</div>
 			</div>

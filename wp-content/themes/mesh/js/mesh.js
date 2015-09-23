@@ -1,13 +1,12 @@
 jQuery(document).ready(function($){
 
-  //Are we loaded?
-  console.log('New theme loaded!  Lets do this!');
+	//Are we loaded?
+	console.log('New theme loaded!  Lets do this!');
 
-  //Let's do something awesome!
+	//Let's do something awesome!
 
-   //$('footer, main').wrap('<div class="stack" />');
 
-   //Increment through each container and apply parrallax
+   		//Increment through each container and apply parrallax
 		//Doing this applies parallax individually to each instance of the "container" class
 		//Otherwise, parallax will be controlled by scrolling as one group.
 		
@@ -38,11 +37,15 @@ jQuery(document).ready(function($){
 
 		if ( width > 481) {
 
+			//Increment through each container and apply parrallax
+			//Doing this applies parallax individually to each instance of the "container" class
+			//Otherwise, parallax will be controlled by scrolling as one group.
 			$('.panel').each(function(i){
 			i = i++;
 			$(this).parallax("50%", .08);
 			});	 
 
+			//Add parallax functionality to banner images
 			$('.banner').parallax("50%", .08);
 		}
 
@@ -50,107 +53,67 @@ jQuery(document).ready(function($){
 			//$('.hide-for-mobile').remove();
 		}
 
-		// $(window).scroll(function() {
+	
+		//Add add 16px margin to the top of the user gateway
+		$(window).bind('scroll', function() {
+		   var navHeight = $( window ).height() - 70;
+				 if ($(window).scrollTop() > navHeight) {
+					 $('.home nav').addClass('fixed-top');
+					 //$('.home .logo').css({top:'0'});
+					 $('.home .user-gateway').css({top:'0', marginTop: '0px'});
 
-		// 	var eventTop = $('#events').offset().top;
-		// 	var windowTop = $(window).scrollTop();
-		// 	var homeHeight = $('#home').height();
-		// 	var halfHome = homeHeight/2;
+					 //$('.home nav ul').css({marginLeft: 260});
+				 }
+				 else {
+					 $('.home nav').removeClass('fixed-top');
+					 //$('.home .logo').css({top:'16px'});
+					 $('.home .user-gateway').css({top:'16px', marginTop: '0px'});
+					 //$('.home nav ul').css({marginLeft: 0});
+				 }
+			});
+		//============================================
 
-		// 	console.log("Event panel top position" + eventTop);
-		// 	console.log("Window top position" +windowTop);
-		// 	console.log("Home panel height" + homeHeight);
-
-		// 	if(windowTop < eventTop || windowTop == 0){
-		// 		//$('.home header.absolute-top').slideDown();
-		// 		//$('.home header.fixed-bottom').slideDown();
-		// 		$('.home header')
-		// 			.addClass('fixed-bottom')
-		// 			.removeClass('fixed-top');
-		// 		//$('.main-navigation ul')
-		// 			//.animate({marginLeft: 0},100);
-		// 		$('#home .user-gateway')
-		// 			.slideDown();
-		// 		$('.home header .logo')
-		// 			.addClass('hide');
-		// 		$('.home header .user-gateway')
-		// 			.addClass('hide');
-		// 	}
-		// 	if(windowTop >= eventTop){
-		// 		$('.home header')
-		// 			.removeClass('fixed-bottom')
-		// 			.addClass('fixed-top');
-		// 		//$('.main-navigation ul')
-		// 			//.animate({marginLeft: 260},100);
-		// 		$('#home .user-gateway')
-		// 			.slideUp();
-		// 		$('.home header .logo')
-		// 			.removeClass('hide');
-		// 		$('.home header .user-gateway')
-		// 			.removeClass('hide');
-		// 	}
-		// });
-
-	$(window).bind('scroll', function() {
-	   var navHeight = $( window ).height() - 70;
-			 if ($(window).scrollTop() > navHeight) {
-				 $('.home nav').addClass('fixed-top');
-				 //$('.home .logo').css({top:'0'});
-				 $('.home .user-gateway').css({top:'0', marginTop: '0px'});
-
-				 //$('.home nav ul').css({marginLeft: 260});
-			 }
-			 else {
-				 $('.home nav').removeClass('fixed-top');
-				 //$('.home .logo').css({top:'16px'});
-				 $('.home .user-gateway').css({top:'16px', marginTop: '0px'});
-				 //$('.home nav ul').css({marginLeft: 0});
-			 }
+		//Twitter button interactivity
+		$('#twitter').click(function(e){
+			e.preventDefault();
+			$(this)
+				.addClass('bounceOutRight animated')
+				.removeClass('bounceInRight');
+			$('.tw-feed-block')
+				.animate({opacity:1}, 700);
 		});
 
+		$('.tw-close').click(function(e){
+			$('.tw-feed-block')
+				.animate({opacity:0}, 700);
+			$('#twitter')
+				.removeClass('bounceOutRight')
+				.addClass('bounceInRight');
+		});
+		//============================================
 
-	$('#twitter').click(function(e){
-		e.preventDefault();
-		$(this)
-			.addClass('bounceOutRight animated')
-			.removeClass('bounceInRight');
-		$('.tw-feed-block')
-			.animate({opacity:1}, 700);
-	});
-
-	$('.tw-close').click(function(e){
-		$('.tw-feed-block')
-			.animate({opacity:0}, 700);
-		$('#twitter')
-			.removeClass('bounceOutRight')
-			.addClass('bounceInRight');
-	});
-
-		// var userFeed = new Instafeed({
-		// limit: 3,
-		// get: 'mesh_design',	
-  //       clientId: '	d346c1de6d274f4994f9345b72b3a633',
-  //       after: function(){
-  //       	$('#instafeed a').wrap('<div class="four columns" />')
-  //       }
-		//     });
-		// userFeed.run();
-
-		// var feed = new Instafeed({
-		// limit: 3,	
-  //       clientId: '	d346c1de6d274f4994f9345b72b3a633',
-  //       after: function(){
-  //       	$('#instafeed a').wrap('<div class="four columns" />')
-  //       }
-		//     });
-		// feed.run();
+		//Instagram feed
+		var feed = new Instafeed({
+		limit: 3,	
+	    clientId: '1f5241191694419fa1db55f743157f54',
+	    //415040633.1f52411.cbd8754eeb1b4112ab857cad4b9bc4b5
+	    get: 'user',
+	    userId: 415040633,
+	    accessToken: '415040633.1f52411.cbd8754eeb1b4112ab857cad4b9bc4b5',
+	    resolution: 'standard_resolution',
+	    after: function(){
+	    	$('#instafeed a').wrap('<div class="four columns" />')
+	    }
+		    });
+		feed.run();
+		//============================================
 
 		//That mobile nav that we all love so much :)
 		$('.responsive-menu-button').sidr({
 		      name: 'sidr-main',
 		      source: '.global-nav',
 		      renaming: false
-    		});
+			});
 
 		$('.sidr-close').click(
 	 	function(){
@@ -160,18 +123,19 @@ jQuery(document).ready(function($){
 		//============================================
 
 
+		//Scroll down on arrow click
 		$('a[href*=#]:not([href=#])').click(function() {
-    		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      			var target = $(this.hash);
-      			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      		if (target.length) {
-        		$('html,body').animate({
-          			scrollTop: target.offset().top
-        		}, 500);
-        return false;
-      		}
-    	}
-  	});
-
-		//$('.logged-in #wpadminbar').hide();
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	  			var target = $(this.hash);
+	  			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	  		if (target.length) {
+	    		$('html,body').animate({
+	      			scrollTop: target.offset().top
+	    		}, 500);
+	    return false;
+	  		}
+		}
+	  	});
+	//============================================
+		
 });
